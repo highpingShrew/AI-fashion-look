@@ -8,6 +8,7 @@ from app.ai_vision.prompts import (
     VISION_SYSTEM_PROMPT,
     VISION_USER_PROMPT,
 )
+from app.ai_vision.schemas import AIRecognitionResult
 
 
 def get_client() -> OpenAI:
@@ -21,7 +22,9 @@ def encode_image(image_path: str | Path) -> str:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 
-def send_image_to_vision(image_path: str | Path) -> str:
+def send_image_to_vision(
+    image_path: str | Path,
+) -> AIRecognitionResult:
     path = Path(image_path)
 
     mime_type, _ = mimetypes.guess_type(path.name)
@@ -30,7 +33,7 @@ def send_image_to_vision(image_path: str | Path) -> str:
     image_data = encode_image(path)
     client = get_client()
 
-    response = client.responses.create(
+    response = client.responses.parse(
         model="gpt-4.1-mini",
         input=[
             {
@@ -46,11 +49,19 @@ def send_image_to_vision(image_path: str | Path) -> str:
                     },
                     {
                         "type": "input_image",
-                        "image_url": f"data:{mime_type};base64,{image_data}",
+                        "image_url": (
+                            f"data:{mime_type};base64,{image_data}"
+                        ),
                     },
                 ],
             },
         ],
+        text_format=AIRecognitionResult,
     )
 
-    return response.output_text
+    if response.output_parsed is None:
+        raise ValueError(
+            "OpenAI не вернул структурированный результат."
+        )
+
+    return response.output_parsed
