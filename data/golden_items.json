@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "image": "jeans_001.webp",
+    "fashion_attributes": {
+      "category": "bottom",
+      "type": "trousers",
+      "subtype": "wide_leg_trousers",
+      "primary_color": "dark blue",
+      "secondary_colors": [],
+      "pattern": "solid",
+      "fit": "relaxed",
+      "silhouette": "wide_leg",
+      "style_tags": [
+        "casual"
+      ],
+      "season": [
+        "spring",
+        "autumn"
+      ],
+      "formality": "casual",
+      "warmth_level": null,
+      "statement_level": null,
+      "description": "Темно-синие широкие джинсовые брюки свободной посадки."
+    }
+  },
+  {
+    "image": "tshirt_001.webp",
+    "fashion_attributes": {
+      "category": "top",
+      "type": "tshirt",
+      "subtype": null,
+      "primary_color": "white",
+      "secondary_colors": [
+        "red",
+        "blue"
+      ],
+      "pattern": "graphic",
+      "fit": "relaxed",
+      "silhouette": "relaxed",
+      "style_tags": [
+        "casual"
+      ],
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "formality": "casual",
+      "warmth_level": null,
+      "statement_level": null,
+      "description": "Белая свободная футболка с коротким рукавом и цветным графическим принтом."
+    }
+  },
+  {
+    "image": "dress_001.webp",
+    "fashion_attributes": {
+      "category": "dress",
+      "type": "dress",
+      "subtype": "maxi_dress",
+      "primary_color": "white",
+      "secondary_colors": [
+        "black"
+      ],
+      "pattern": "polka_dot",
+      "fit": "fitted",
+      "silhouette": "fitted",
+      "style_tags": [
+        "feminine",
+        "elegant"
+      ],
+      "season": [
+        "spring",
+        "summer"
+      ],
+      "formality": "smart_casual",
+      "warmth_level": null,
+      "statement_level": null,
+      "description": "Белое приталенное платье макси в черный горох с V-образным вырезом."
+    }
+  }
+]
